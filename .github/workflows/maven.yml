@@ -9,30 +9,29 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ "master" ]
+    push:
+        branches: ["master"]
 jobs:
-  build:
+    build:
+        runs-on: self-hosted
 
-    runs-on: self-hosted
+        steps:
+            - uses: actions/checkout@v3
+            - name: Set up JDK 21
+              uses: actions/setup-java@v3
+              with:
+                  java-version: "21"
+                  distribution: "temurin"
+                  cache: maven
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 21
-      uses: actions/setup-java@v3
-      with:
-          java-version: "21"
-          distribution: "temurin"
-          cache: maven
+            - run: |
+                  mkdir -p src/main/resources/
+                  touch src/main/resources/application.properties
+                  echo "${{ secrets.MY_ENV }}" >> src/main/resources/application.properties
 
-    - run: |
-          mkdir -p src/main/resources/
-          touch src/main/resources/application.properties
-          echo "${{ secrets.MY_ENV }}" >> src/main/resources/application.properties
-          
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+            - name: Build with Maven
+              run: mvn -B package --file pom.xml
 
-    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-    - name: Execute jar file
-      run: sudo kill -9 `sudo lsof -t -i:8083` & sudo java -jar /home/ubuntu/actions-runner/_work/shopipi_be_spring/shopipi_be_spring/target/shopipi_be_spring-0.0.1-SNAPSHOT.jar & # tắt cổng
+            # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
+            - name: Execute jar file
+              run: sudo kill -9 `sudo lsof -t -i:8083` & sudo java -jar /home/ubuntu/actions-runner/_work/vncafe_be_spring/vncafe_be_spring/target/vncafe_be_spring-0.0.1-SNAPSHOT.jar & # tắt cổng
