@@ -25,12 +25,13 @@ public class TestController {
   final UserRepo userRepo;
   final ApiNewsDataService apiService;
 
-  @GetMapping("")
-  public ResponseEntity<?> test() {
-    // return ResponseEntity.ok().body(Map.of("project", "shopipi", "hello",
-    // "oke"));
-    return ResponseEntity.ok().body(apiService.callApiAddNews(Optional.empty(), Optional.empty()));
-  }
+  // @GetMapping("")
+  // public ResponseEntity<?> test() {
+  // // return ResponseEntity.ok().body(Map.of("project", "shopipi", "hello",
+  // // "oke"));
+  // return ResponseEntity.ok().body(apiService.callApiAddNews(Optional.empty(),
+  // Optional.empty()));
+  // }
 
   @GetMapping("/user/{id}")
   public ResponseEntity<MainResponse<User>> getUser(@PathVariable String id) {
