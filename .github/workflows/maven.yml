@@ -34,4 +34,4 @@ jobs:
 
             # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
             - name: Execute jar file
-              run: sudo kill -9 `sudo lsof -t -i:8083` & sudo java -jar /home/ubuntu/github/action-runner_1/_work_be/vncafe_be_spring/vncafe_be_spring/target/vncafe_be_spring-0.0.1-SNAPSHOT.jar & # tắt cổng
+              run: sudo kill -9 `sudo lsof -t -i:8083` & sudo java -jar /home/ubuntu/github/action-runner-1/_work_be/vncafe_be_spring/vncafe_be_spring/target/vncafe_be_spring-0.0.1-SNAPSHOT.jar & # tắt cổng
