@@ -42,7 +42,8 @@ public class WebMvcConfig {
             .allowedHeaders("*")
             .allowedMethods("GET", "POST", "OPTIONS", "DELETE", "PUT")
             // "http://localhost:5173"
-            .allowedOrigins("http://localhost:5172", "http://192.168.1.12:5173", "http://localhost:5173"
+            .allowedOrigins("http://localhost:5172", "http://192.168.1.12:5173", "http://localhost:5173",
+                "https://www.vncafe.click"
         // "http://192.168.109.26:5173
         )
             .allowCredentials(true);
