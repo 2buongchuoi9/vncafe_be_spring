@@ -33,6 +33,13 @@ public class TestController {
   // Optional.empty()));
   // }
 
+  @GetMapping("")
+  public ResponseEntity<?> test() {
+
+    return ResponseEntity.ok().body(
+        Map.of("project", "vncafe", "author", "Dũng Nguyễn", "email", "nguyenssk043@gmail.com", "phone", "0936631402"));
+  }
+
   @GetMapping("/user/{id}")
   public ResponseEntity<MainResponse<User>> getUser(@PathVariable String id) {
     return ResponseEntity.ok()
